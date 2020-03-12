@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from genericlib.WebdriverUtils import webUtils
 from datetime import date
+import time
 class mmtHome:
 
     _crossBtn='//span[@class="crossIcon popupSprite popupCrossIcon"]'
@@ -10,7 +11,7 @@ class mmtHome:
     _blrDropDown='//p[text()="Bengaluru, India"]'
     _toBtn='//input[@id="toCity"]'
     _toBtn2='//input[@placeholder="To"]'
-    _goaDropDown='//p[contains(text()="Goa, India")]'
+    _goaDropDown='//p[text()="Goa, India"]/ancestor::li'
     _depDate='//label[@for="departure"]'
     _roundTrip='//li[@data-cy="roundTrip"]'
     _searchBtn = '//a[text()="Search"]'
@@ -42,12 +43,15 @@ class mmtHome:
         print('in flight from')
         self.driver.find_element(By.XPATH,self._fromBtn).click()
         self.driver.find_element(By.XPATH,self._fromBtn2).send_keys(departingPlace)
+        time.sleep(3)
         self.driver.find_element(By.XPATH,self._blrDropDown).click()
+        time.sleep(3)
 
     def flightTo(self,destination):
         print('in flight to')
         self.driver.find_element(By.XPATH, self._toBtn).click()
         self.driver.find_element(By.XPATH, self._toBtn2).send_keys(destination)
+        time.sleep(3)
         self.driver.find_element(By.XPATH, self._goaDropDown).click()
 
     def departureDate(self):
