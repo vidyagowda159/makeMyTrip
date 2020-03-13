@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from genericlib.WebdriverUtils import webUtils
+
 class mmtLogin:
     _username='//input[@id="identifierId"]'
     _password='//input[@name="password"]'
@@ -24,6 +25,7 @@ class mmtLogin:
     def nextBtn_pwd(self):
         print('in nextbtn pwd')
         return self.driver.find_element(By.XPATH,self._nextbtn2)
+
     def googleBtn(self):
         print('in googlbtn')
         return self.driver.find_element(By.XPATH,self._googleBtn)

@@ -61,17 +61,25 @@ class mmtHome:
         global todayDate
         todayDate = today.strftime("%B,%d,%Y").split(',')
         todayDate[1] = str(int(todayDate[1])+1)
-        futureDate = "//div[text()='{} {}']/../..//p[text()='{}']".format(todayDate[0], todayDate[2], todayDate[1])
-        print('date xpath')
-        return self.driver.find_element(By.XPATH,futureDate)
+        depDate = "//div[text()='{}']/../..//p[text()='{}']".format(todayDate[0], todayDate[1])
+        print('depdate xpath')
+        return self.driver.find_element(By.XPATH,depDate)
 
-    def booking(self,Origin,destination):
+    def returnDate(self):
+        print("in return date")
+        todayDate[1] = str(int(todayDate[1])+1)
+        retDate = "//div[text()='{}']/../..//p[text()='{}']".format(todayDate[0], todayDate[1])
+        print('retdate xpath')
+        return self.driver.find_element(By.XPATH, retDate)
+
+    def selectFlightOptions(self,Origin,destination):
         self.click_crossBtn().click()
         self.checkFlightBtn()
         self.roundTrip().click()
         self.flightFrom(Origin)
         self.flightTo(destination)
         self.departureDate().click()
+        self.returnDate().click()
         self.search().click()
 
 
