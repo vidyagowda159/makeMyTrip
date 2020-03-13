@@ -1,10 +1,11 @@
 from settings import driver,url
-from pages.login import mmtLogin
-from pages.homePage import mmtHome
+from pages.mmt_pages.login import mmtLogin
+from pages.mmt_pages.homePage import mmtHome
 from genericlib.FileLib import fileData as f
-from pages.flightsPage import flightDetails
+from pages.mmt_pages.flightsPage import flightDetails
 import pytest
-class Testlogin:
+
+class Testmmt:
 
     @pytest.fixture()
     def driver_methods(self):
@@ -21,8 +22,6 @@ class Testlogin:
             password=objfile.readData('Sheet1',i+1,2,f.filepath_User)
             objmmt.login(username,password)
 
-class Testhome:
-
     def test_booking(self):
         objfile = f()
         objHome=mmtHome(driver)
@@ -32,7 +31,7 @@ class Testhome:
             destination = objfile.readData('Sheet2', i + 1, 2, f.filepath_User)
             objHome.selectFlightOptions(origin,destination)
 
-class Testflightspage:
     def test_flightd(self):
         obj = flightDetails(driver)
         obj.captureFlightDetails()
+
