@@ -34,13 +34,13 @@ class mmtHome:
         return self.driver.find_element(By.XPATH,self._searchBtn)
 
     def checkFlightBtn(self):
-        print('in check flight btn')
+        print('in check test_flight btn')
         Bool=self.driver.find_element(By.XPATH,self._flightBtn).is_selected()
         if Bool==False:
             self.driver.find_element(By.XPATH, self._flightBtn).click()
 
     def flightFrom(self,departingPlace):
-        print('in flight from')
+        print('in test_flight from')
         self.driver.find_element(By.XPATH,self._fromBtn).click()
         self.driver.find_element(By.XPATH,self._fromBtn2).send_keys(departingPlace)
         time.sleep(3)
@@ -48,7 +48,7 @@ class mmtHome:
         time.sleep(3)
 
     def flightTo(self,destination):
-        print('in flight to')
+        print('in test_flight to')
         self.driver.find_element(By.XPATH, self._toBtn).click()
         self.driver.find_element(By.XPATH, self._toBtn2).send_keys(destination)
         time.sleep(3)
