@@ -2,7 +2,8 @@ from selenium import webdriver
 from genericlib.FileLib import fileData
 
 obj_file=fileData()
-data=obj_file.fileOpen()
+data=obj_file.readJson(r'C:\Users\Vidyashree\PycharmProjects\makeMyTrip\testData\CommonData.json')
+
 username = data["Username"]
 pwd = data["Password"]
 url = data["url"]

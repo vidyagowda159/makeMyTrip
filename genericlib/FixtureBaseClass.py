@@ -5,7 +5,7 @@ import pytest
 
 class FixtureBaseClass:
 
-     @pytest.fixture(scope="class")
+     @pytest.fixture(scope="class",autouse=True)
      def launch(self):
           driver.get(url)
           driver.maximize_window()
@@ -13,7 +13,7 @@ class FixtureBaseClass:
           driver.close()
 
      @pytest.mark.dependency(name="Login")
-     @pytest.fixture(scope="function")
+     @pytest.fixture(scope="function",autouse=True)
      def login(self):
          objmmt = mmtLogin(driver)
          objmmt.login(username, pwd)

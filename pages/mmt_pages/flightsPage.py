@@ -20,7 +20,7 @@ class flightDetails:
 
         for i in range(1,len(value)+1):
             name= self.driver.find_element(By.XPATH,xpath2.format(i)).text
-            obj_f.writeData("Ecocnomy",i+1,column,filepath,name)
+            obj_f.writexlData("Ecocnomy",i+1,column,filepath,name)
 
     def flightName(self):
         f_name='(//span[@class="airlineInfo-sctn"])[{}]'

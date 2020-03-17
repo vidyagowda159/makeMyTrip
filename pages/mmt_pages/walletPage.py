@@ -1,7 +1,7 @@
 from genericlib.WebdriverUtils import webUtils
 
 class Wallet:
-    _walletIcon='//li[@class="makeFlex hrtlCenter lhMyWallet"]'
+    _walletIcon='//span[@class="chSprite chWalletIcon chWallet"]'
     _balance='//p[@data-cy="walletAmt"]'
 
     def __init__(self,driver):
